@@ -2,7 +2,7 @@ import Component from './Component';
 
 class Row {
   constructor() {
-    super(tag, null, 'row'); /* call parent constructor */
+    super('div', null, 'row'); /* call parent constructor */
   }
 }
 
