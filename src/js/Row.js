@@ -1,6 +1,6 @@
 import Component from './Component';
 
-class Row {
+class Row extends Component {
   constructor() {
     super('div', null, 'row'); /* call parent constructor */
   }

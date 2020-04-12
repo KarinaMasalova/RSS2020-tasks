@@ -1,6 +1,6 @@
 import Component from './Component';
 
-class Column {
+class Column extends Component {
   constructor() {
     super('div', null, 'col-sm-4');
   }
