@@ -1,1 +1,11 @@
 @import './bootstrap.min.css';
+
+.col-sm-4 {
+  margin-bottom: 20px;
+}
+
+.card-text {
+  text-align: center;
+  font-family: Segoe UI;
+  padding: 10px 0;
+}
