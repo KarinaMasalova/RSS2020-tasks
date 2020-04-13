@@ -1,5 +1,18 @@
 @import './bootstrap.min.css';
 
+.row {
+  justify-content: center;
+}
+
+.card {
+  box-shadow: 0px 1px 1px 1px rgba(44, 50, 50, 0.77);
+}
+
+.card:hover {
+  box-shadow: 1px 1px 25px 0px rgba(44, 50, 50, 0.77);
+  transition: .3s;
+}
+
 .col-sm-4 {
   margin-bottom: 20px;
 }
