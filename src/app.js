@@ -4,6 +4,7 @@ import Row from './js/Row';
 import Column from './js/Column';
 import Card from './js/Card';
 import CardImgTop from './js/CardImgTop';
+import CardText from './js/CardText';
 
 window.addEventListener('load', () => {
   const container = new Component('div', null, 'container');
@@ -14,7 +15,8 @@ window.addEventListener('load', () => {
   const createCardsFromObj = (obj) => {
     const card = new Card(obj.word, obj.translation, obj.image, obj.audioSrc);
     const cardImgTop = new CardImgTop(obj.image);
-    card.append(cardImgTop);
+    const cardText = new CardText(obj.word);
+    card.append(cardImgTop, cardText);
     return card;
   }
 
