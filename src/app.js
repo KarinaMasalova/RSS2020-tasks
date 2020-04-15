@@ -3,10 +3,7 @@ import Component from './js/Component';
 import Row from './js/Row';
 import Column from './js/Column';
 import Card from './js/Card';
-import CardImgTop from './js/CardImgTop';
-import CardText from './js/CardText';
 import BurgerContainer from './js/BurgerContainer';
-import RotateBtn from './js/RotateBtn';
 
 window.addEventListener('load', () => {
   const container = new Component('div', null, 'container');
@@ -18,11 +15,7 @@ window.addEventListener('load', () => {
   const burgerContainer = new BurgerContainer();
 
   const createCardsFromObj = (obj) => {
-    const card = new Card(obj.word, obj.translation, obj.image, obj.audioSrc);
-    const cardImgTop = new CardImgTop(obj.image);
-    const cardText = new CardText(obj.word);
-    const rotateBtn = new RotateBtn('./img/rotate.svg'); /* like in dist */
-    card.append(cardImgTop, cardText, rotateBtn);
+    const card = new Card(obj);
     return card;
   }
 
@@ -31,6 +24,17 @@ window.addEventListener('load', () => {
     const column = new Column();
     column.append(cardComponent);
     return column;
+  });
+
+  burgerContainer.addEventListener('click', (event) => {
+    const { target } = event;
+    if (target.classList.contains('nav-link')) {
+      const category = target.textContent;
+      const [res] = Cards.filter((obj) => obj.category == category); /* [res] takes first element */
+      cardComponents.forEach( (card, index) => {
+        card.replaceContent(res.cards[index]);
+      });
+    }
   });
 
   row.append(...columnsWithCards);
