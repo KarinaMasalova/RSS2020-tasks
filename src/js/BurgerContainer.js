@@ -6,7 +6,7 @@ class BurgerContainer extends Component {
   constructor() {
       super('div', null, 'pos-f-t');
       const collapse = new BurgerCollapse();
-      const nav = new Nav();
+      const nav = new Nav(collapse);
       this.append(collapse, nav);
   }
 }

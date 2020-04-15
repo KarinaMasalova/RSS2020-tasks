@@ -6,6 +6,7 @@ import Card from './js/Card';
 import CardImgTop from './js/CardImgTop';
 import CardText from './js/CardText';
 import BurgerContainer from './js/BurgerContainer';
+import RotateBtn from './js/RotateBtn';
 
 window.addEventListener('load', () => {
   const container = new Component('div', null, 'container');
@@ -20,7 +21,8 @@ window.addEventListener('load', () => {
     const card = new Card(obj.word, obj.translation, obj.image, obj.audioSrc);
     const cardImgTop = new CardImgTop(obj.image);
     const cardText = new CardText(obj.word);
-    card.append(cardImgTop, cardText);
+    const rotateBtn = new RotateBtn(); /* ??? */
+    card.append(cardImgTop, cardText, rotateBtn);
     return card;
   }
 

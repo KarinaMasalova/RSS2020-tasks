@@ -7,6 +7,10 @@ class BurgerCollapse extends Component {
     const navbar = new Navbar();
     this.append(navbar);
   }
+
+  toggleNav() {
+    this.element.classList.toggle('show');
+  }
 }
 
 export default BurgerCollapse;
