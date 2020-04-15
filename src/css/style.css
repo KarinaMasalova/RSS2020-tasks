@@ -22,3 +22,8 @@
   font-family: Segoe UI;
   padding: 10px 0;
 }
+
+button.navbar {
+  border-width: 2px;
+  border-radius: 6px;
+}
