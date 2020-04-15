@@ -44,10 +44,14 @@ button.navbar {
 }
 
 a:not([href]) {
-  color: lightgray;
+  color: #D3D3D3;
   cursor: pointer;
   cursor: pointer;
   font-size: 16px;
   font-weight: 700;
   text-align: center;
+}
+
+.bg-dark {
+  color: #ff729d;
 }
