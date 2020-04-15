@@ -5,6 +5,7 @@ import Column from './js/Column';
 import Card from './js/Card';
 import CardImgTop from './js/CardImgTop';
 import CardText from './js/CardText';
+import BurgerContainer from './js/BurgerContainer';
 
 window.addEventListener('load', () => {
   const container = new Component('div', null, 'container');
@@ -12,6 +13,9 @@ window.addEventListener('load', () => {
 
   const category1 = Cards[0]; /* Action Set A' */
   const categoryCards = category1.cards;
+
+  const burgerContainer = new BurgerContainer();
+
   const createCardsFromObj = (obj) => {
     const card = new Card(obj.word, obj.translation, obj.image, obj.audioSrc);
     const cardImgTop = new CardImgTop(obj.image);
@@ -29,5 +33,5 @@ window.addEventListener('load', () => {
 
   row.append(...columnsWithCards);
   container.append(row);
-  document.body.append(container.element);
+  document.body.append(burgerContainer.element, container.element);
 });

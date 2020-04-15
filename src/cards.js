@@ -106,7 +106,7 @@ const cards = [
     ],
   },
   {
-    category: 'Animal Set A',
+    category: 'Animal (set A)',
     cards: [
       {
         word: 'cat',
