@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
     const card = new Card(obj.word, obj.translation, obj.image, obj.audioSrc);
     const cardImgTop = new CardImgTop(obj.image);
     const cardText = new CardText(obj.word);
-    const rotateBtn = new RotateBtn(); /* ??? */
+    const rotateBtn = new RotateBtn('./img/rotate.svg');
     card.append(cardImgTop, cardText, rotateBtn);
     return card;
   }
