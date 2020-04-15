@@ -38,3 +38,16 @@ button.navbar {
   right: 5%;
   width: 12%;
 }
+
+.reverse:hover {
+  opacity: 0.5;
+}
+
+a:not([href]) {
+  color: lightgray;
+  cursor: pointer;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
