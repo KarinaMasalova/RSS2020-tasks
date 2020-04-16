@@ -8,6 +8,8 @@ class Card extends Component {
     super('div', null, 'card');
     this.cardImgTop = new CardImgTop(obj.image);
     this.cardText = new CardText(obj.word, obj.translation);
+    this.audioSrc = obj.audioSrc;
+    this.element.addEventListener('click', () => this.playAudio());
     this.rotateBtn = new RotateBtn('./img/rotate.svg'); /* path like in dist */
     this.append(this.cardImgTop, this.cardText, this.rotateBtn);
   }
@@ -15,6 +17,10 @@ class Card extends Component {
   replaceContent(cardObj) {
     this.cardImgTop.element.setAttribute('src', cardObj.image);
     this.cardText.element.textContent = cardObj.word;
+  }
+
+  playAudio() {
+    new Audio(this.audioSrc).play();
   }
 }
 
