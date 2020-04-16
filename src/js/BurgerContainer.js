@@ -5,9 +5,9 @@ import Nav from './Nav';
 class BurgerContainer extends Component {
   constructor() {
       super('div', null, 'pos-f-t');
-      const collapse = new BurgerCollapse();
-      const nav = new Nav(collapse);
-      this.append(collapse, nav);
+      this.collapse = new BurgerCollapse();
+      const nav = new Nav(this.collapse);
+      this.append(this.collapse, nav);
   }
 }
 

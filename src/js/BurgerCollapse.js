@@ -11,6 +11,10 @@ class BurgerCollapse extends Component {
   toggleNav() {
     this.element.classList.toggle('show');
   }
+
+  deleteShowClass() {
+    this.element.classList.remove('show');
+  }
 }
 
 export default BurgerCollapse;

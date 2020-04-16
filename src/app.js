@@ -4,6 +4,7 @@ import Row from './js/Row';
 import Column from './js/Column';
 import Card from './js/Card';
 import BurgerContainer from './js/BurgerContainer';
+import BurgerCollapse from './js/BurgerCollapse';
 
 window.addEventListener('load', () => {
   const container = new Component('div', null, 'container');
@@ -34,6 +35,7 @@ window.addEventListener('load', () => {
       cardComponents.forEach( (card, index) => {
         card.replaceContent(res.cards[index]);
       });
+      burgerContainer.collapse.deleteShowClass();
     }
   });
 
