@@ -1,6 +1,6 @@
 const cards = [
   {
-    category: 'Action Set A',
+    category: 'Action (set A)',
     cards: [
       {
         word: 'cry',
@@ -53,7 +53,7 @@ const cards = [
     ],
   },
   {
-    category: 'Action Set B',
+    category: 'Action (set B)',
     cards: [
       {
         word: 'open',
@@ -102,6 +102,59 @@ const cards = [
         translation: 'плавать',
         image: 'img/swim.jpg',
         audioSrc: 'audio/swim.mp3',
+      },
+    ],
+  },
+  {
+    category: 'Action (set C)',
+    cards: [
+      {
+        word: 'argue',
+        translation: 'спорить',
+        image: 'img/argue.jpg',
+        audioSrc: 'audio/argue.mp3',
+      },
+      {
+        word: 'build',
+        translation: 'строить',
+        image: 'img/build.jpg',
+        audioSrc: 'audio/build.mp3',
+      },
+      {
+        word: 'carry',
+        translation: 'нести',
+        image: 'img/carry.jpg',
+        audioSrc: 'audio/carry.mp3',
+      },
+      {
+        word: 'catch',
+        translation: 'ловить',
+        image: 'img/catch.jpg',
+        audioSrc: 'audio/catch.mp3',
+      },
+      {
+        word: 'drive',
+        translation: 'водить машину',
+        image: 'img/drive.jpg',
+        audioSrc: 'audio/drive.mp3',
+      },
+      {
+        word: 'drop',
+        translation: 'падать',
+        image: 'img/drop.jpg',
+        audioSrc: 'audio/drop.mp3',
+      },
+      {
+        word: 'pull',
+        translation: 'тянуть',
+        image: 'img/pull.jpg',
+        audioSrc: 'audio/pull.mp3',
+      },
+      {
+        word: 'push',
+        translation: 'толкать',
+        image: 'img/push.jpg',
+        audioSrc: 'audio/push.mp3',
       },
     ],
   },
