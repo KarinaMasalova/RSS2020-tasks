@@ -12,10 +12,6 @@ class Component {
   addEventListener(type, handler) {
     this.element.addEventListener(type, handler);
   }
- /*
-  toggleClasses(...classes) {
-    classes.forEach((class) => this.element.classList.toggle(class));
-  } */
 }
 
 export default Component;
