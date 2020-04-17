@@ -1,6 +1,4 @@
 import Component from './Component';
-import CardImgTop from './CardImgTop';
-import CardText from './CardText';
 import RotateBtn from './RotateBtn';
 import CardSide from './CardSide';
 
