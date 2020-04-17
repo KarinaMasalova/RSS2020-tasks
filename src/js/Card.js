@@ -13,13 +13,16 @@ class Card extends Component {
     this.rotateBtn = new RotateBtn('./img/rotate.svg'); /* path like in dist */
     this.element.addEventListener('click', () => this.playAudio());
     this.rotateBtn.addEventListener('click', () => this.element.classList.toggle('is-flipped'));
-    // this.cardFrontSide.addEventListener('mouseleave', () => this.element.classList.toggle('is-flipped'));   
+    this.cardBackSide.addEventListener('mouseleave', () => this.element.classList.toggle('is-flipped'));   
     this.append(this.cardFrontSide, this.cardBackSide, this.rotateBtn);
   }
 
   replaceContent(cardObj) {
-    this.cardImgTop.element.setAttribute('src', cardObj.image);
-    this.cardText.element.textContent = cardObj.word;
+    this.cardFrontSide.cardImgTop.element.setAttribute('src', cardObj.image);
+    this.cardFrontSide.cardText.element.textContent = cardObj.word;
+    this.cardBackSide.cardImgTop.element.setAttribute('src', cardObj.image);
+    this.cardBackSide.cardText.element.textContent = cardObj.translation;
+    this.audioSrc = cardObj.audioSrc;
   }
 
   playAudio() {
