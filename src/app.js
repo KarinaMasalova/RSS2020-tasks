@@ -9,8 +9,11 @@ window.addEventListener('load', () => {
   const container = new Component('div', null, 'container');
   const row = new Row();
 
-  const category1 = Cards[0]; /* Action Set A' */
-  const categoryCards = category1.cards;
+  const categoryCards = Cards.map( (obj) => ({
+    image: obj.cards[0].image,
+    word: obj.category,
+    translation: obj.category,
+  }));
 
   const burgerContainer = new BurgerContainer();
 
