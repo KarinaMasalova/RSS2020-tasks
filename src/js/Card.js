@@ -2,16 +2,21 @@ import Component from './Component';
 import CardImgTop from './CardImgTop';
 import CardText from './CardText';
 import RotateBtn from './RotateBtn';
+import CardSide from './CardSide';
 
 class Card extends Component {
   constructor(obj) {
     super('div', null, 'card');
-    this.cardImgTop = new CardImgTop(obj.image);
-    this.cardText = new CardText(obj.word, obj.translation);
+    this.cardFrontSide = new CardSide(obj.image, obj.word);
+    this.cardFrontSide.element.classList.add('card-side-front');
+    this.cardBackSide = new CardSide(obj.image, obj.translation);
+    this.cardBackSide.element.classList.add('card-side-back');
     this.audioSrc = obj.audioSrc;
-    this.element.addEventListener('click', () => this.playAudio());
     this.rotateBtn = new RotateBtn('./img/rotate.svg'); /* path like in dist */
-    this.append(this.cardImgTop, this.cardText, this.rotateBtn);
+    this.element.addEventListener('click', () => this.playAudio());
+    this.rotateBtn.addEventListener('click', () => this.element.classList.toggle('is-flipped'));
+    // this.cardFrontSide.addEventListener('mouseleave', () => this.element.classList.toggle('is-flipped'));   
+    this.append(this.cardFrontSide, this.cardBackSide, this.rotateBtn);
   }
 
   replaceContent(cardObj) {
