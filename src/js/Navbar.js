@@ -5,13 +5,13 @@ import NavLink from './NavLink';
 class Navbar extends Component {
   constructor() {
     super('ul', null, 'navbar-nav');
-    const mainPage = new NavLink('Main page');
+    this.mainPage = new NavLink('Main page');
     const categories = Cards.map( (obj) => {
       const category = new NavLink(obj.category);
       this.append(category);
       return category;
     });
-    this.append(mainPage, ...categories);
+    this.append(this.mainPage, ...categories);
   }
 }
 

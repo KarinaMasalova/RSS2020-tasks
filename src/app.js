@@ -4,9 +4,12 @@ import Row from './js/Row';
 import Column from './js/Column';
 import Card from './js/Card';
 import BurgerContainer from './js/BurgerContainer';
+import ToggleContainer from './js/ToggleContainer';
 
 window.addEventListener('load', () => {
   const container = new Component('div', null, 'container');
+  const toggleContainer = new ToggleContainer();
+  container.append(toggleContainer);
   const row = new Row();
 
   const categoryCards = Cards.map( (obj) => ({
