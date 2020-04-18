@@ -13,9 +13,9 @@ window.addEventListener('load', () => {
   const row = new Row();
 
   const categoryCards = Cards.map( (obj) => ({
-    image: obj.cards[0].image,
     word: obj.category,
     translation: obj.category,
+    image: obj.cards[0].image,
   }));
 
   const burgerContainer = new BurgerContainer();
@@ -32,15 +32,28 @@ window.addEventListener('load', () => {
     return column;
   });
 
+  const changeCategory = (category) => {
+    let newCards;
+    if (category == 'Main page') {
+      newCards = categoryCards;
+      console.log(newCards);
+    } else {
+      newCards = Cards.find((obj) => obj.category == category).cards; /* [newCards] takes first element */
+      console.log(newCards);
+      console.log(Cards);
+      console.log(category);
+    }
+    cardComponents.forEach( (card, index) => {
+      card.replaceContent(newCards[index]);
+    });
+    burgerContainer.collapse.deleteShowClass();
+  }
+
   burgerContainer.addEventListener('click', (event) => {
     const { target } = event;
     if (target.classList.contains('nav-link')) {
       const category = target.textContent;
-      const [res] = Cards.filter((obj) => obj.category == category); /* [res] takes first element */
-      cardComponents.forEach( (card, index) => {
-        card.replaceContent(res.cards[index]);
-      });
-      burgerContainer.collapse.deleteShowClass();
+      changeCategory(category);
     }
   });
 
