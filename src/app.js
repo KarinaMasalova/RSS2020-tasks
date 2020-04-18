@@ -34,9 +34,12 @@ window.addEventListener('load', () => {
 
   const changeCategory = (category) => {
     let newCards;
-    if (category == 'Main page') newCards = categoryCards;
-    else newCards = Cards.find((obj) => obj.category == category).cards;
-    
+    if (category == 'Main page') { 
+      newCards = categoryCards;
+      document.querySelector('nav-link:first-child').classList.add('active');
+    } else {
+      newCards = Cards.find((obj) => obj.category == category).cards;
+    }
     cardComponents.forEach( (card, index) => {
       card.replaceContent(newCards[index]);
     });

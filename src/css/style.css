@@ -72,7 +72,8 @@ a:not([href]) {
   text-align: center;
 }
 
-.bg-dark, a.active {
+.bg-dark,
+.nav-link:first-child {
   color: #ff729d;
 }
 
