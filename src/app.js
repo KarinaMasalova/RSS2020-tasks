@@ -34,15 +34,9 @@ window.addEventListener('load', () => {
 
   const changeCategory = (category) => {
     let newCards;
-    if (category == 'Main page') {
-      newCards = categoryCards;
-      console.log(newCards);
-    } else {
-      newCards = Cards.find((obj) => obj.category == category).cards; /* [newCards] takes first element */
-      console.log(newCards);
-      console.log(Cards);
-      console.log(category);
-    }
+    if (category == 'Main page') newCards = categoryCards;
+    else newCards = Cards.find((obj) => obj.category == category).cards;
+    
     cardComponents.forEach( (card, index) => {
       card.replaceContent(newCards[index]);
     });
