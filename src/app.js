@@ -88,7 +88,7 @@ window.addEventListener('load', () => {
   toggleContainer.addEventListener('change', (event) => {
     console.log(event.target.checked);
     toggleDisplayText();
-    if (event.target.checked) {
+    if (!event.target.checked) {
       playBtn.addEventListener('click', () => {
         game.startGame(cardComponents);
       });
