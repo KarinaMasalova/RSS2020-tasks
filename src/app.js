@@ -91,7 +91,7 @@ window.addEventListener('load', () => {
     if (event.target.checked) {
       playBtn.addEventListener('click', () => {
         console.log(cardComponents);
-        game.startGame(cardComponent.element);
+        game.startGame(cardComponents);
       });
     }
   });
