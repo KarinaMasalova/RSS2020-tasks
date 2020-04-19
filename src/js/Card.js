@@ -28,6 +28,10 @@ class Card extends Component {
   playAudio() {
     new Audio(this.audioSrc).play();
   }
+
+  getWord() {
+    return this.cardFrontSide.cardText.text;
+  };
 }
 
 export default Card;

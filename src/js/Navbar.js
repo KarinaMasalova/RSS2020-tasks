@@ -6,12 +6,12 @@ class Navbar extends Component {
   constructor() {
     super('ul', null, 'navbar-nav');
     this.mainPage = new NavLink('Main page');
-    const categories = Cards.map( (obj) => {
+    this.categories = Cards.map( (obj) => {
       const category = new NavLink(obj.category);
       this.append(category);
       return category;
     });
-    this.append(this.mainPage, ...categories);
+    this.append(this.mainPage, ...this.categories);
   }
 }
 

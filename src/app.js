@@ -4,6 +4,7 @@ import Row from './js/Row';
 import Column from './js/Column';
 import Card from './js/Card';
 import BurgerContainer from './js/BurgerContainer';
+import Navbar from './js/Navbar';
 import ToggleContainer from './js/ToggleContainer';
 
 window.addEventListener('load', () => {
@@ -32,16 +33,28 @@ window.addEventListener('load', () => {
     return column;
   });
 
+  const navbar = new Navbar();
+  let curCategory = navbar.mainPage.category;
+
+  cardComponents.forEach((card) => {
+    card.addEventListener('click', () => {
+      if (curCategory == 'Main page') {
+        const category = card.getWord();
+        changeCategory(category);
+        curCategory = navbar.categories;
+      }
+    })
+  });
+
   const changeCategory = (category) => {
     let newCards;
     if (category == 'Main page') { 
       newCards = categoryCards;
-      document.querySelector('nav-link:first-child').classList.add('active');
     } else {
       newCards = Cards.find((obj) => obj.category == category).cards;
     }
     cardComponents.forEach( (card, index) => {
-      card.replaceContent(newCards[index]);
+        card.replaceContent(newCards[index]);
     });
     burgerContainer.collapse.deleteShowClass();
   }
@@ -50,6 +63,7 @@ window.addEventListener('load', () => {
     const { target } = event;
     if (target.classList.contains('nav-link')) {
       const category = target.textContent;
+      curCategory = category;
       changeCategory(category);
     }
   });
