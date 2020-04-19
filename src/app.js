@@ -90,7 +90,6 @@ window.addEventListener('load', () => {
     toggleDisplayText();
     if (event.target.checked) {
       playBtn.addEventListener('click', () => {
-        console.log(cardComponents);
         game.startGame(cardComponents);
       });
     }
