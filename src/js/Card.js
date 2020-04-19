@@ -31,7 +31,7 @@ class Card extends Component {
 
   getWord() {
     return this.cardFrontSide.cardText.text;
-  };
+  }
 }
 
 export default Card;

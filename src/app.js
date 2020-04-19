@@ -7,6 +7,7 @@ import BurgerContainer from './js/BurgerContainer';
 import Navbar from './js/Navbar';
 import ToggleContainer from './js/ToggleContainer';
 import Game from './js/Game';
+import Checkbox from './js/Checkbox';
 
 window.addEventListener('load', () => {
   const container = new Component('div', null, 'container');
@@ -67,6 +68,22 @@ window.addEventListener('load', () => {
       const category = target.textContent;
       curCategory = category;
       changeCategory(category);
+    }
+  });
+
+  const toggleDisplayText = () => {
+    cardComponents.forEach((card) => {
+      card.cardFrontSide.cardText.element.classList.toggle('d-none');
+      card.cardBackSide.cardText.element.classList.toggle('d-none');
+      card.rotateBtn.element.classList.toggle('d-none');
+    });
+  }
+  
+  toggleContainer.addEventListener('change', (event) => {
+    console.log(event.target.checked);
+    toggleDisplayText();
+    if (event.target.checked) {
+      //game.startGame();
     }
   });
 
