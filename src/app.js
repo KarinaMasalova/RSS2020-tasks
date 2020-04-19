@@ -7,13 +7,14 @@ import BurgerContainer from './js/BurgerContainer';
 import Navbar from './js/Navbar';
 import ToggleContainer from './js/ToggleContainer';
 import Game from './js/Game';
-import Checkbox from './js/Checkbox';
+import PlayBtn from './js/PlayBtn';
 
 window.addEventListener('load', () => {
   const container = new Component('div', null, 'container');
   const toggleContainer = new ToggleContainer();
   container.append(toggleContainer);
   const row = new Row();
+  const playBtn = new PlayBtn();
   const game = new Game();
 
   const categoryCards = Cards.map( (obj) => ({
@@ -76,18 +77,23 @@ window.addEventListener('load', () => {
       card.cardFrontSide.cardText.element.classList.toggle('d-none');
       card.cardBackSide.cardText.element.classList.toggle('d-none');
       card.rotateBtn.element.classList.toggle('d-none');
+      //playBtn.element.classList.toggle('d-none');
+      //playBtn.element.classList.toggle('d-block');
     });
   }
   
   toggleContainer.addEventListener('change', (event) => {
     console.log(event.target.checked);
     toggleDisplayText();
+    playBtn.addEventListener('click', () => {
+
+    })
     if (event.target.checked) {
       //game.startGame();
     }
   });
 
-  row.append(...columnsWithCards);
+  row.append(...columnsWithCards, playBtn);
   container.append(row);
   document.body.append(burgerContainer.element, container.element);
 });

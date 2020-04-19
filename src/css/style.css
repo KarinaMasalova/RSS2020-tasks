@@ -124,8 +124,8 @@ a:not([href]) {
 .onoffswitch-inner:after {
   content: "Play";
   padding-right: 11px;
-  background-color: #ff69b4;
-  color: #ffffff;
+  background-color: #66ff66;
+  color: #484848;
   text-align: right;
 }
 
@@ -148,4 +148,17 @@ a:not([href]) {
 
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0px; 
+}
+
+.play-btn {
+  margin: 2% 20% 5%;
+  background-color: #66ff66;
+}
+
+.play-btn-word {
+  color: #484848;
+  margin: 2% auto;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 15px;
 }
