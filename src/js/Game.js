@@ -15,6 +15,8 @@ class Game {
     this.mistake = 0;
     this.curCards = [...cards]; /* cards copy */
     this.nextRandCard();
+    this.randCard.playAudio();
+    //this.playCurCard();
   }
 
   rightCard() {
@@ -37,10 +39,10 @@ class Game {
     if (this.card.word == this.randCard.word) this.rightCard();
     else this.wrongCard();
   }
-
+/*
   playCurCard() {
-    this.randCard.getSound();
-  }
+    this.randCard.playAudio();
+  } */
 }
 
 export default Game;

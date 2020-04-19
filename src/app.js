@@ -74,22 +74,25 @@ window.addEventListener('load', () => {
 
   const toggleDisplayText = () => {
     cardComponents.forEach((card) => {
+      console.log(curCategory);
+      //if (!curCategory === 'Main page') {
       card.cardFrontSide.cardText.element.classList.toggle('d-none');
       card.cardBackSide.cardText.element.classList.toggle('d-none');
       card.rotateBtn.element.classList.toggle('d-none');
       //playBtn.element.classList.toggle('d-none');
       //playBtn.element.classList.toggle('d-block');
+      
     });
   }
   
   toggleContainer.addEventListener('change', (event) => {
     console.log(event.target.checked);
     toggleDisplayText();
-    playBtn.addEventListener('click', () => {
-
-    })
     if (event.target.checked) {
-      //game.startGame();
+      playBtn.addEventListener('click', () => {
+        console.log(cardComponents);
+        game.startGame(cardComponent.element);
+      });
     }
   });
 
