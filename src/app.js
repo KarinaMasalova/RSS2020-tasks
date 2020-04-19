@@ -6,12 +6,14 @@ import Card from './js/Card';
 import BurgerContainer from './js/BurgerContainer';
 import Navbar from './js/Navbar';
 import ToggleContainer from './js/ToggleContainer';
+import Game from './js/Game';
 
 window.addEventListener('load', () => {
   const container = new Component('div', null, 'container');
   const toggleContainer = new ToggleContainer();
   container.append(toggleContainer);
   const row = new Row();
+  const game = new Game();
 
   const categoryCards = Cards.map( (obj) => ({
     word: obj.category,
