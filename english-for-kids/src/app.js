@@ -59,11 +59,11 @@ window.addEventListener('load', () => {
     }
 
     cardComponents.forEach( (card, index) => {
-      if (!gameIsOn) {
+      //if (!gameIsOn) {
         card.replaceContent(newCards[index]);
-      } else {
+      /* } else {
         game.selectCard(card);
-      }
+      } */
     });
 
     burgerContainer.collapse.deleteShowClass();
