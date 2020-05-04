@@ -33,7 +33,8 @@ body {
 }
 
 .h1-movie-search,
-.rss-text {
+.rss-text, 
+.gh-name {
   margin: auto;
   color: #787d87;
   font-family: 'Inconsolata', monospace;
@@ -41,10 +42,6 @@ body {
 
 .h1-movie-search {
   text-align: center;
-}
-
-.rss-text {
-  font-size: 18px;
 }
 
 /*search bar*/
@@ -165,8 +162,16 @@ body {
   font-weight: bolder;
 }
 
-
 .footer-container {
   display: flex;
   justify-content: space-around;
+}
+
+.github {
+  margin: auto;
+}
+
+.rss-text,
+.gh-name {
+  font-size: 18px;
 }
