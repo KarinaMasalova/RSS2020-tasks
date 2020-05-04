@@ -13,6 +13,7 @@ class App {
     this.inputSearchBar = new InputSearchBar();
     this.searchDiv = new SearchDiv();
     this.searchContainer.append(this.inputSearchBar, this.searchDiv);
+    document.body.setAttribute('id', 'honey-comb');
     document.body.append(this.header.element, this.searchContainer.element);
   }
 }
