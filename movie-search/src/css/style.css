@@ -32,11 +32,19 @@ body {
   border-bottom: 1px solid #474a51;
 }
 
-.h1-movie-search {
-  height: 100%;
-  text-align: center;
+.h1-movie-search,
+.rss-text {
+  margin: auto;
   color: #787d87;
   font-family: 'Inconsolata', monospace;
+}
+
+.h1-movie-search {
+  text-align: center;
+}
+
+.rss-text {
+  font-size: 18px;
 }
 
 /*search bar*/
@@ -155,4 +163,10 @@ body {
   color: white;
   opacity: 0.5;
   font-weight: bolder;
+}
+
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
 }

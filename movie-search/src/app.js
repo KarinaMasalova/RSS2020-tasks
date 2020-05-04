@@ -4,6 +4,7 @@ import SearchContainer from './js/SearchContainer';
 import InputSearchBar from './js/InputSearchBar';
 import SearchDiv from './js/SearchDiv';
 import Footer from './js/Footer';
+import RssText from './js/RssText';
 
 class App {
   constructor() {
@@ -15,6 +16,8 @@ class App {
     this.searchDiv = new SearchDiv();
     this.searchContainer.append(this.inputSearchBar, this.searchDiv);
     this.footer = new Footer();
+    this.rssText = new RssText();
+    this.footer.append(this.rssText);
     document.body.setAttribute('id', 'honey-comb');
     document.body.append(this.header.element, this.searchContainer.element, this.footer.element);
   }
