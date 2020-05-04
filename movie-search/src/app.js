@@ -10,6 +10,7 @@ import GithubName from './js/GithubName';
 import GithubIcon from './js/GithubIcon';
 import SwiperContainer from './js/SwiperContainer';
 import SwiperWrapper from './js/SwiperWrapper';
+import SwiperSlide from './js/SwiperSlide';
 
 class App {
   constructor() {
@@ -22,6 +23,8 @@ class App {
     this.searchContainer.append(this.inputSearchBar, this.searchDiv);
     this.swiperContainer = new SwiperContainer();
     this.swiperWrapper = new SwiperWrapper();
+    this.swiperSlide = new SwiperSlide();
+    this.swiperWrapper.append(this.swiperSlide);
     this.swiperContainer.append(this.swiperWrapper);
     this.footer = new Footer();
     this.rssText = new RssText();
