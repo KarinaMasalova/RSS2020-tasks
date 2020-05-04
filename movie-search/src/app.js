@@ -3,15 +3,16 @@ import HeaderTitle from './js/HeaderTitle';
 import SearchContainer from './js/SearchContainer';
 import InputSearchBar from './js/InputSearchBar';
 import SearchDiv from './js/SearchDiv';
+import Swiper from 'swiper';
+import SwiperContainer from './js/SwiperContainer';
+import SwiperWrapper from './js/SwiperWrapper';
+import SwiperSlide from './js/SwiperSlide';
+import SwiperPagination from './js/SwiperPagination';
 import Footer from './js/Footer';
 import RssText from './js/RssText';
 import Github from './js/Github';
 import GithubName from './js/GithubName';
 import GithubIcon from './js/GithubIcon';
-import SwiperContainer from './js/SwiperContainer';
-import SwiperWrapper from './js/SwiperWrapper';
-import SwiperSlide from './js/SwiperSlide';
-import SwiperPagination from './js/SwiperPagination';
 
 class App {
   constructor() {
@@ -38,8 +39,7 @@ class App {
     document.body.setAttribute('id', 'honey-comb');
     document.body.append(this.header.element, this.searchContainer.element, this.swiperContainer.element,
       this.footer.element);
-
-    const swiper = new Swiper('.swiper-container', {
+    this.swiper = new Swiper('.swiper-container', {
       slidesPerView: 3,
       spaceBetween: 30,
       pagination: {
@@ -48,7 +48,6 @@ class App {
       },
     });
   }
-
 }
 
 window.addEventListener('load', () => {
