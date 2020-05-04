@@ -3,6 +3,7 @@ import HeaderTitle from './js/HeaderTitle';
 import SearchContainer from './js/SearchContainer';
 import InputSearchBar from './js/InputSearchBar';
 import SearchDiv from './js/SearchDiv';
+import Footer from './js/Footer';
 
 class App {
   constructor() {
@@ -13,8 +14,9 @@ class App {
     this.inputSearchBar = new InputSearchBar();
     this.searchDiv = new SearchDiv();
     this.searchContainer.append(this.inputSearchBar, this.searchDiv);
+    this.footer = new Footer();
     document.body.setAttribute('id', 'honey-comb');
-    document.body.append(this.header.element, this.searchContainer.element);
+    document.body.append(this.header.element, this.searchContainer.element, this.footer.element);
   }
 }
 
