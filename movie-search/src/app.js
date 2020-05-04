@@ -2,6 +2,7 @@ import Header from './js/Header';
 import HeaderTitle from './js/HeaderTitle';
 import SearchContainer from './js/SearchContainer';
 import InputSearchBar from './js/InputSearchBar';
+import SearchDiv from './js/SearchDiv';
 
 class App {
   constructor() {
@@ -10,7 +11,8 @@ class App {
     this.header.append(this.headerTitle);
     this.searchContainer = new SearchContainer();
     this.inputSearchBar = new InputSearchBar();
-    this.searchContainer.append(this.inputSearchBar);
+    this.searchDiv = new SearchDiv();
+    this.searchContainer.append(this.inputSearchBar, this.searchDiv);
     document.body.append(this.header.element, this.searchContainer.element);
   }
 }
