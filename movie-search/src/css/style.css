@@ -19,7 +19,7 @@ body {
 
 #honey-comb {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 	background: center url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(40,40,40)' viewBox='0 0 100 169.5'%3E%3Cpolygon points='50,34.75 93.5,59.75 93.5,109.75 50,134.75 6.5,109.75 6.5,59.75'%3E%3C/polygon%3E%3Cpolygon points='0,-50 43.5,-25 43.5,25 0,50 -43.5,25 -43.5,-25'%3E%3C/polygon%3E%3Cpolygon points='100,-50 143.5,-25 143.5,25 100,50 56.5,25 56.5,-25'%3E%3C/polygon%3E%3Cpolygon points='0,119.5 43.5,144.5 43.5,194.5 0,219.5 -43.5,194.5 -43.5,144.5'%3E%3C/polygon%3E%3Cpolygon points='100,119.5 143.5,144.5 143.5,194.5 100,219.5 56.5,194.5 56.5,144.5'%3E%3C/polygon%3E%3C/svg%3E");
   background-color:rgb(30, 30, 30);
   background-size: 16px;
@@ -43,21 +43,25 @@ body {
 .container,
 .search, 
 .search-bar {
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
 }
 
+.search, 
+.search-bar {
+  position: absolute;
+}
+
 .container {
-  margin: 80px auto 20px;
+  margin: 30px auto 20px;
   width: 300px;
   height: 100px;
 }
 
 .search {
-  margin: auto;
+  margin: 95px auto 20px;
   width: 80px;
   height: 80px;
   background: crimson;
@@ -76,15 +80,13 @@ body {
 .search::after {
   content: "";
   position: absolute;
-  margin: auto;
-  right: 0;
-  bottom: 0;
   transition: all .5s;
 }
 
 .search::before {
-  top: 22px;
-  left: 22px;
+  margin: 35% 0;
+  top: 29%;
+  right: 28%;
   width: 12px;
   height: 2px;
   background: white;
@@ -92,8 +94,8 @@ body {
 }
 
 .search::after {
-  top: -5px;
-  left: -5px;
+  top: 33%;
+  left: 33%;
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -102,7 +104,7 @@ body {
 
 .search-bar {
   font-family: 'Inconsolata', monospace;
-  margin: auto;
+  margin: 110px auto 20px;
   width: 50px;
   height: 50px;
   outline: none;
@@ -134,8 +136,9 @@ body {
 
 .search-bar:focus ~ .search::before,
 .search-bar:focus ~ .search::after {
-  top: 0;
-  left: 0;
+  margin: 35%;
+  top: 12%;
+  left: 1%;
   width: 25px;
 }
 
