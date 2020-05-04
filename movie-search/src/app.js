@@ -8,6 +8,8 @@ import RssText from './js/RssText';
 import Github from './js/Github';
 import GithubName from './js/GithubName';
 import GithubIcon from './js/GithubIcon';
+import SwiperContainer from './js/SwiperContainer';
+import SwiperWrapper from './js/SwiperWrapper';
 
 class App {
   constructor() {
@@ -18,6 +20,9 @@ class App {
     this.inputSearchBar = new InputSearchBar();
     this.searchDiv = new SearchDiv();
     this.searchContainer.append(this.inputSearchBar, this.searchDiv);
+    this.swiperContainer = new SwiperContainer();
+    this.swiperWrapper = new SwiperWrapper();
+    this.swiperContainer.append(this.swiperWrapper);
     this.footer = new Footer();
     this.rssText = new RssText();
     this.github = new Github();
@@ -26,7 +31,8 @@ class App {
     this.github.append(this.githubIcon, this.githubName);
     this.footer.append(this.rssText, this.github);
     document.body.setAttribute('id', 'honey-comb');
-    document.body.append(this.header.element, this.searchContainer.element, this.footer.element);
+    document.body.append(this.header.element, this.searchContainer.element, this.swiperContainer.element,
+      this.footer.element);
   }
 }
 
