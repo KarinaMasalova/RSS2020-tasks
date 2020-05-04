@@ -169,9 +169,17 @@ body {
 
 .github {
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .rss-text,
 .gh-name {
   font-size: 18px;
+}
+
+.gh-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
 }

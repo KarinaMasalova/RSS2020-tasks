@@ -7,6 +7,7 @@ import Footer from './js/Footer';
 import RssText from './js/RssText';
 import Github from './js/Github';
 import GithubName from './js/GithubName';
+import GithubIcon from './js/GithubIcon';
 
 class App {
   constructor() {
@@ -20,8 +21,9 @@ class App {
     this.footer = new Footer();
     this.rssText = new RssText();
     this.github = new Github();
+    this.githubIcon = new GithubIcon('./img/github-icon.png');
     this.githubName = new GithubName();
-    this.github.append(this.githubName);
+    this.github.append(this.githubIcon, this.githubName);
     this.footer.append(this.rssText, this.github);
     document.body.setAttribute('id', 'honey-comb');
     document.body.append(this.header.element, this.searchContainer.element, this.footer.element);
