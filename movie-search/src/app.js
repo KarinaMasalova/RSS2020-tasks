@@ -11,6 +11,7 @@ import GithubIcon from './js/GithubIcon';
 import SwiperContainer from './js/SwiperContainer';
 import SwiperWrapper from './js/SwiperWrapper';
 import SwiperSlide from './js/SwiperSlide';
+import SwiperPagination from './js/SwiperPagination';
 
 class App {
   constructor() {
@@ -23,9 +24,10 @@ class App {
     this.searchContainer.append(this.inputSearchBar, this.searchDiv);
     this.swiperContainer = new SwiperContainer();
     this.swiperWrapper = new SwiperWrapper();
+    this.swiperPagination = new SwiperPagination();
     this.swiperSlide = new SwiperSlide();
     this.swiperWrapper.append(this.swiperSlide);
-    this.swiperContainer.append(this.swiperWrapper);
+    this.swiperContainer.append(this.swiperWrapper, this.swiperPagination);
     this.footer = new Footer();
     this.rssText = new RssText();
     this.github = new Github();
@@ -36,7 +38,17 @@ class App {
     document.body.setAttribute('id', 'honey-comb');
     document.body.append(this.header.element, this.searchContainer.element, this.swiperContainer.element,
       this.footer.element);
+
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
   }
+
 }
 
 window.addEventListener('load', () => {
