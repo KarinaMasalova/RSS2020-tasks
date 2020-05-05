@@ -16,6 +16,7 @@ import GithubIcon from './js/GithubIcon';
 import { loadMovieData } from './js/loader';
 import SwiperButtonNext from './js/SwiperButtonNext';
 import SwiperButtonPrev from './js/SwiperButtonPrev';
+import Movie from './js/Movie';
 
 class App {
   constructor() {
@@ -57,10 +58,18 @@ class App {
         prevEl: '.swiper-button-prev',
       },
     });
-    loadMovieData('dream');
   }
 }
 
 window.addEventListener('load', () => {
   const app = new App();
+  let slides;
+  loadMovieData('dream', 3)
+  .then(data => {
+    if (data.Response === 'True') {
+      const movies = data.Search.map(obj => new Movie(obj));
+      slides = movies.map((movie) => new SwiperSlide(movie));
+    }
+    app.swiper.appendSlide(slides.map((s) => s.element));
+  });
 });

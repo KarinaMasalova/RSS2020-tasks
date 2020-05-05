@@ -25,6 +25,8 @@ body {
   background-size: 16px;
 }
 
+/* header */
+
 .bg-gray {
   height: 55px;
   background-color: #252525;
@@ -195,6 +197,8 @@ body {
 .swiper-pagination-bullet-active {
   background: crimson;
 }
+
+/* footer */
 
 .footer-container {
   display: flex;
