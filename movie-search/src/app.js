@@ -13,6 +13,9 @@ import RssText from './js/RssText';
 import Github from './js/Github';
 import GithubName from './js/GithubName';
 import GithubIcon from './js/GithubIcon';
+import { getMovieTitle } from './js/loader';
+import SwiperButtonNext from './js/SwiperButtonNext';
+import SwiperButtonPrev from './js/SwiperButtonPrev';
 
 class App {
   constructor() {
@@ -26,9 +29,11 @@ class App {
     this.swiperContainer = new SwiperContainer();
     this.swiperWrapper = new SwiperWrapper();
     this.swiperPagination = new SwiperPagination();
+    this.swiperBtnNext = new SwiperButtonNext();
+    this.swiperBtnPrev = new SwiperButtonPrev();
     this.swiperSlide = new SwiperSlide();
     this.swiperWrapper.append(this.swiperSlide);
-    this.swiperContainer.append(this.swiperWrapper, this.swiperPagination);
+    this.swiperContainer.append(this.swiperWrapper, this.swiperPagination, this.swiperBtnNext, this.swiperBtnPrev);
     this.footer = new Footer();
     this.rssText = new RssText();
     this.github = new Github();
@@ -42,11 +47,17 @@ class App {
     this.swiper = new Swiper('.swiper-container', {
       slidesPerView: 3,
       spaceBetween: 30,
+      centerInsufficientSlides: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
       },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
     });
+    getMovieTitle('dream');
   }
 }
 
