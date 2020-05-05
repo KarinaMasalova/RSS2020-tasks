@@ -188,6 +188,14 @@ body {
   align-items: center;
 }
 
+.swiper-button-next, .swiper-button-prev {
+  color: crimson;
+}
+
+.swiper-pagination-bullet-active {
+  background: crimson;
+}
+
 .footer-container {
   display: flex;
   justify-content: space-around;
