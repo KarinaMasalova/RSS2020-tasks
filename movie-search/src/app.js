@@ -13,7 +13,7 @@ import RssText from './js/RssText';
 import Github from './js/Github';
 import GithubName from './js/GithubName';
 import GithubIcon from './js/GithubIcon';
-import { getMovieTitle } from './js/loader';
+import { loadMovieData } from './js/loader';
 import SwiperButtonNext from './js/SwiperButtonNext';
 import SwiperButtonPrev from './js/SwiperButtonPrev';
 
@@ -57,7 +57,7 @@ class App {
         prevEl: '.swiper-button-prev',
       },
     });
-    getMovieTitle('dream');
+    loadMovieData('dream');
   }
 }
 

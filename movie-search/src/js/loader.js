@@ -1,6 +1,6 @@
 const keyOMDb = '9514f3e9';
 
-async function getMovieTitle(query, page = 1) {
+async function loadMovieData(query, page = 1) {
   const url = `http://www.omdbapi.com/?s=${query}&page=${page}&apikey=${keyOMDb}`;
   const res = await fetch(url);
   const data = await res.json(); 
@@ -8,4 +8,4 @@ async function getMovieTitle(query, page = 1) {
   return data;
 }
 
-export { getMovieTitle };
+export { loadMovieData };
