@@ -2,7 +2,9 @@ import Component from './Component';
 
 export default class GithubName extends Component {
   constructor() {
-    super('p', null, 'gh-name');
-    this.element.innerText = 'KarinaMasalova';
+    super('a', null, 'gh-name');
+    this.element.textContent = 'KarinaMasalova';
+    this.element.setAttribute('href', 'https://github.com/KarinaMasalova');
+    this.element.setAttribute('target', '_blank');
   }
 }
