@@ -8,14 +8,14 @@ import SwiperContainer from './js/SwiperContainer';
 import SwiperWrapper from './js/SwiperWrapper';
 import SwiperSlide from './js/SwiperSlide';
 import SwiperPagination from './js/SwiperPagination';
+import SwiperButtonNext from './js/SwiperButtonNext';
+import SwiperButtonPrev from './js/SwiperButtonPrev';
 import Footer from './js/Footer';
 import RssText from './js/RssText';
 import Github from './js/Github';
 import GithubName from './js/GithubName';
 import GithubIcon from './js/GithubIcon';
 import { loadMovieData } from './js/loader';
-import SwiperButtonNext from './js/SwiperButtonNext';
-import SwiperButtonPrev from './js/SwiperButtonPrev';
 import Movie from './js/Movie';
 
 class App {
@@ -32,13 +32,11 @@ class App {
     this.swiperPagination = new SwiperPagination();
     this.swiperBtnNext = new SwiperButtonNext();
     this.swiperBtnPrev = new SwiperButtonPrev();
-    this.swiperSlide = new SwiperSlide();
-    this.swiperWrapper.append(this.swiperSlide);
     this.swiperContainer.append(this.swiperWrapper, this.swiperPagination, this.swiperBtnNext, this.swiperBtnPrev);
     this.footer = new Footer();
     this.rssText = new RssText();
     this.github = new Github();
-    this.githubIcon = new GithubIcon('./img/github-icon.png');
+    this.githubIcon = new GithubIcon('./img/github-icon.svg');
     this.githubName = new GithubName();
     this.github.append(this.githubIcon, this.githubName);
     this.footer.append(this.rssText, this.github);
@@ -64,7 +62,7 @@ class App {
 window.addEventListener('load', () => {
   const app = new App();
   let slides;
-  loadMovieData('dream', 3)
+  loadMovieData()
   .then(data => {
     if (data.Response === 'True') {
       const movies = data.Search.map(obj => new Movie(obj));
