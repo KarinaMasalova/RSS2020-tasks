@@ -6,13 +6,10 @@ import MovieYear from './MovieYear';
 export default class Movie extends Component {
   constructor(obj) {
     super('div', null, 'movie-container');
-    this.title = new MovieTitle();
-    this.poster = new MoviePoster();
-    this.year = new MovieYear();
-    this.element.append(this.title, this.poster, this.year);
-    let { Title, Poster, Year } = obj;
-    console.log(Title);
-    console.log(Poster);
-    console.log(Year);
+    const { Title, Poster, Year } = obj;
+    this.title = new MovieTitle(Title);
+    this.poster = new MoviePoster(Poster);
+    this.year = new MovieYear(Year);
+    this.element.append(this.title.element, this.poster.element, this.year.element);
   }
 }
