@@ -212,7 +212,8 @@ a.gh-name {
 }
 
 .movie-title,
-.movie-year {
+.movie-year,
+.movie-rating {
   font-weight: bold;
   max-height: 50px;
   font-size: 1em;
