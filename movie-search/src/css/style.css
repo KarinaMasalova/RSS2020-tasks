@@ -173,9 +173,10 @@ a.gh-name {
 }
 
 .swiper-slide {
+  height: 80vh;
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: transparent;
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -194,8 +195,32 @@ a.gh-name {
   color: crimson;
 }
 
+
+
+.swiper-pagination-bullet {
+  background: #787d87;
+  opacity: .5;
+}
+
 .swiper-pagination-bullet-active {
   background: crimson;
+  opacity: 1;
+}
+
+.movie-container {
+  font-size: 3vw;
+}
+
+.movie-title,
+.movie-year {
+  font-weight: bold;
+  max-height: 50px;
+  font-size: 1em;
+  color: #787d87;
+}
+
+.movie-poster {
+  width: 85%;
 }
 
 /* footer */
@@ -223,7 +248,5 @@ a.gh-name:hover {
 }
 
 .gh-icon {
-  width: 40px;
-  height: 40px;
   margin-right: 10px;
 }
