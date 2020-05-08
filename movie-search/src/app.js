@@ -1,9 +1,9 @@
+import Swiper from 'swiper';
 import Header from './js/Header';
 import HeaderTitle from './js/HeaderTitle';
 import SearchContainer from './js/SearchContainer';
 import InputSearchBar from './js/InputSearchBar';
 import SearchDiv from './js/SearchDiv';
-import Swiper from 'swiper';
 import SwiperContainer from './js/SwiperContainer';
 import SwiperWrapper from './js/SwiperWrapper';
 import SwiperSlide from './js/SwiperSlide';
@@ -15,7 +15,7 @@ import RssText from './js/RssText';
 import Github from './js/Github';
 import GithubName from './js/GithubName';
 import GithubIcon from './js/GithubIcon';
-import { loadMovieData } from './js/loader';
+import loadMovieData from './js/loader';
 import Movie from './js/Movie';
 
 class App {
@@ -32,7 +32,8 @@ class App {
     this.swiperPagination = new SwiperPagination();
     this.swiperBtnNext = new SwiperButtonNext();
     this.swiperBtnPrev = new SwiperButtonPrev();
-    this.swiperContainer.append(this.swiperWrapper, this.swiperPagination, this.swiperBtnNext, this.swiperBtnPrev);
+    this.swiperContainer.append(this.swiperWrapper, this.swiperPagination,
+      this.swiperBtnNext, this.swiperBtnPrev);
     this.footer = new Footer();
     this.rssText = new RssText();
     this.github = new Github();
@@ -41,8 +42,8 @@ class App {
     this.github.append(this.githubIcon, this.githubName);
     this.footer.append(this.rssText, this.github);
     document.body.setAttribute('id', 'honey-comb');
-    document.body.append(this.header.element, this.searchContainer.element, this.swiperContainer.element,
-      this.footer.element);
+    document.body.append(this.header.element, this.searchContainer.element,
+      this.swiperContainer.element, this.footer.element);
     this.swiper = new Swiper('.swiper-container', {
       slidesPerView: 3,
       spaceBetween: 30,
@@ -61,13 +62,21 @@ class App {
 
 window.addEventListener('load', () => {
   const app = new App();
-  let slides;
-  loadMovieData()
-  .then(data => {
-    if (data.Response === 'True') {
-      const movies = data.Search.map(obj => new Movie(obj));
-      slides = movies.map((movie) => new SwiperSlide(movie));
-    }
-    app.swiper.appendSlide(slides.map((s) => s.element));
+  let page = 1;
+  const loader = (currentPage) => {
+    let slides;
+    loadMovieData(null, currentPage)
+      .then((data) => {
+        if (data.Response === 'True') {
+          const movies = data.Search.map((obj) => new Movie(obj));
+          slides = movies.map((movie) => new SwiperSlide(movie));
+          app.swiper.appendSlide(slides.map((s) => s.element));
+        }
+      });
+  };
+  loader(1);
+  app.swiper.on('reachEnd', () => {
+    page += 1;
+    loader(page);
   });
 });
