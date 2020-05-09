@@ -1,7 +1,7 @@
 const keyOMDb = '9514f3e9';
 
 async function loadMovieRating(imdbID) {
-  const url = `http://www.omdbapi.com/?i=${imdbID}&apikey=${keyOMDb}`;
+  const url = `https://www.omdbapi.com/?i=${imdbID}&apikey=${keyOMDb}`;
   const result = await fetch(url);
   const resJson = await result.json();
   return resJson.imdbRating;
@@ -9,7 +9,7 @@ async function loadMovieRating(imdbID) {
 
 async function loadMovieData(query, page = 1) {
   const encoded = encodeURIComponent(query || 'dream');
-  const url = `http://www.omdbapi.com/?s=${encoded}&page=${page}&apikey=${keyOMDb}`;
+  const url = `https://www.omdbapi.com/?s=${encoded}&page=${page}&apikey=${keyOMDb}`;
   const res = await fetch(url);
   const data = await res.json();
 
