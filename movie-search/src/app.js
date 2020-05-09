@@ -57,6 +57,10 @@ class App {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      keyboard: {
+        enabled: true,
+        onlyInViewport: false,
+      },
     });
   }
 }
