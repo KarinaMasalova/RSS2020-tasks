@@ -45,12 +45,13 @@ class App {
     document.body.append(this.header.element, this.searchContainer.element,
       this.swiperContainer.element, this.footer.element);
     this.swiper = new Swiper('.swiper-container', {
-      slidesPerView: 3,
+      slidesPerView: 4,
       spaceBetween: 30,
       centerInsufficientSlides: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
+        dynamicBullets: true,
       },
       navigation: {
         nextEl: '.swiper-button-next',
