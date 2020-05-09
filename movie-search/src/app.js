@@ -17,6 +17,7 @@ import GithubName from './js/GithubName';
 import GithubIcon from './js/GithubIcon';
 import loadMovieData from './js/loader';
 import Movie from './js/Movie';
+import saveInputValue from './js/saveInputValue';
 
 class App {
   constructor() {
@@ -45,9 +46,11 @@ class App {
     document.body.append(this.header.element, this.searchContainer.element,
       this.swiperContainer.element, this.footer.element);
     this.swiper = new Swiper('.swiper-container', {
-      slidesPerView: 4,
+      slidesPerView: 3,
       spaceBetween: 30,
       centerInsufficientSlides: true,
+      autoHeight: true,
+      // updateOnWindowResize: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -84,4 +87,5 @@ window.addEventListener('load', () => {
     page += 1;
     loader(page);
   });
+  app.searchContainer.addEventListener('submit', saveInputValue);
 });
