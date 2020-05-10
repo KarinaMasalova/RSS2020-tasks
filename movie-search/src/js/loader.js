@@ -32,10 +32,11 @@ const addRating = async (obj) => {
 };
 
 async function loadMovieData(query, page = 1) {
-  const encoded = encodeURIComponent(query || 'dream');
-  // сonst lang = await getLang(encoded);
-  getTranslation(encoded);
-  // if (lang === 'en')
+  let encoded = encodeURIComponent(query || 'dream');
+  const lang = await getLang(encoded);
+  if (lang !== 'en') {
+    encoded = await getTranslation(encoded);
+  }
   const url = `https://www.omdbapi.com/?s=${encoded}&page=${page}&apikey=${keyOMDb}`;
   const res = await fetch(url);
   const data = await res.json();
