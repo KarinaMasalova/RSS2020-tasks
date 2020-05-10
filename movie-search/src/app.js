@@ -18,6 +18,7 @@ import GithubIcon from './js/GithubIcon';
 import loadMovieData from './js/loader';
 import Movie from './js/Movie';
 import saveInputValue from './js/saveInputValue';
+import SearchButton from './js/SearchButton';
 
 class App {
   constructor() {
@@ -26,8 +27,10 @@ class App {
     this.header.append(this.headerTitle);
     this.searchContainer = new SearchContainer();
     this.inputSearchBar = new InputSearchBar();
+    this.searchButton = new SearchButton();
     this.searchDiv = new SearchDiv();
-    this.searchContainer.append(this.inputSearchBar, this.searchDiv);
+    this.searchDiv.append(this.inputSearchBar, this.searchButton);
+    this.searchContainer.append(this.searchDiv);
     this.swiperContainer = new SwiperContainer();
     this.swiperWrapper = new SwiperWrapper();
     this.swiperPagination = new SwiperPagination();
@@ -48,10 +51,7 @@ class App {
     this.swiper = new Swiper('.swiper-container', {
       slidesPerView: 4,
       spaceBetween: 30,
-      centerInsufficientSlides: true, /*
-      setWrapperSize: false,
-      autoHeight: true,
-      updateOnWindowResize: true, */
+      centerInsufficientSlides: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -72,7 +72,9 @@ class App {
 const app = new App();
 let page = 1;
 let currentQuery = 'dream';
+let isNextQuery;
 const loader = (query, currentPage) => {
+  isNextQuery = false;
   loadMovieData(query, currentPage)
     .then((data) => {
       if (data.Response === 'True') {
@@ -80,21 +82,24 @@ const loader = (query, currentPage) => {
         const slides = movies.map((movie) => new SwiperSlide(movie));
         app.swiper.appendSlide(slides.map((s) => s.element));
       }
-      console.log(data);
     });
 };
 
 loader(currentQuery, page);
+
 app.swiper.on('reachEnd', () => {
-  page += 1;
-  loader(currentQuery, page);
+  if (!isNextQuery) {
+    page += 1;
+    loader(currentQuery, page);
+  }
 });
 
 app.searchContainer.addEventListener('submit', (event) => {
   event.preventDefault();
   currentQuery = saveInputValue();
   page = 1;
-  app.swiper.removeAllSlides();
   console.log(page);
+  isNextQuery = true;
+  app.swiper.removeAllSlides();
   loader(currentQuery, page);
 });
