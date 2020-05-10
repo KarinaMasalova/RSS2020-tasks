@@ -16,6 +16,15 @@ const getLang = async (text) => {
   return json.lang;
 };
 
+const getTranslation = async (text) => {
+  const lang = await getLang(text);
+  const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?key=${yandexKey}&text=${text}&lang=${lang}-en`;
+  const result = await fetch(url);
+  const json = await result.json();
+  console.log(json);
+  return json.text[0];
+};
+
 const addRating = async (obj) => {
   const rate = await loadMovieRating(obj.imdbID);
   Object.assign(obj, { Rating: rate });
@@ -24,7 +33,9 @@ const addRating = async (obj) => {
 
 async function loadMovieData(query, page = 1) {
   const encoded = encodeURIComponent(query || 'dream');
-  /* сonst lang = await */ getLang(encoded);
+  // сonst lang = await getLang(encoded);
+  getTranslation(encoded);
+  // if (lang === 'en')
   const url = `https://www.omdbapi.com/?s=${encoded}&page=${page}&apikey=${keyOMDb}`;
   const res = await fetch(url);
   const data = await res.json();
