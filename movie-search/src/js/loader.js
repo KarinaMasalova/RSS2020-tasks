@@ -12,7 +12,6 @@ const getLang = async (text) => {
   const url = `https://translate.yandex.net/api/v1.5/tr.json/detect?key=${yandexKey}&text=${text}`;
   const result = await fetch(url);
   const json = await result.json();
-  console.log(json.lang);
   return json.lang;
 };
 
@@ -21,7 +20,6 @@ const getTranslation = async (text) => {
   const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?key=${yandexKey}&text=${text}&lang=${lang}-en`;
   const result = await fetch(url);
   const json = await result.json();
-  console.log(json);
   return json.text[0];
 };
 
@@ -37,6 +35,24 @@ const addInfoToPanel = (word) => {
   return info;
 };
 
+const deleteInfoFromPanel = () => {
+  const info = document.querySelector('.search-query-info');
+  info.textContent = '';
+  return info;
+};
+
+const addErrorToPanel = (word) => {
+  const error = document.querySelector('.search-query-error');
+  error.textContent = `No results for ${word}`;
+  return error;
+};
+
+const deleteErrorFromPanel = () => {
+  const error = document.querySelector('.search-query-error');
+  error.textContent = '';
+  return error;
+};
+
 async function loadMovieData(query, page = 1) {
   let encoded = encodeURIComponent(query || 'dream');
   const lang = await getLang(encoded);
@@ -50,7 +66,10 @@ async function loadMovieData(query, page = 1) {
 
   if (data.Response === 'True') {
     await Promise.all(data.Search.map((obj) => addRating(obj)));
-    return data;
+    deleteErrorFromPanel();
+  } else {
+    deleteInfoFromPanel();
+    addErrorToPanel(encoded);
   }
 
   return data;
