@@ -6,5 +6,6 @@ export default class InputSearchBar extends Component {
     this.element.setAttribute('type', 'text');
     this.element.setAttribute('placeholder', 'Search...');
     this.element.setAttribute('autocomplete', 'off');
+    this.element.setAttribute('autofocus');
   }
 }
