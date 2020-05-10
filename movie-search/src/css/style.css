@@ -103,6 +103,11 @@ a.gh-name {
   opacity: .7;
 }
 
+.search-query-info-panel {
+  margin: 0 auto;
+  color: #787d87;
+}
+
 /* swiper */
 
 .swiper-container {

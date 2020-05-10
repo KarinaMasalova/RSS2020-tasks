@@ -31,11 +31,18 @@ const addRating = async (obj) => {
   return obj;
 };
 
+const addInfoToPanel = (word) => {
+  const info = document.querySelector('.search-query-info');
+  info.textContent = `Search results for ${word}`;
+  return info;
+};
+
 async function loadMovieData(query, page = 1) {
   let encoded = encodeURIComponent(query || 'dream');
   const lang = await getLang(encoded);
   if (lang !== 'en') {
     encoded = await getTranslation(encoded);
+    addInfoToPanel(encoded);
   }
   const url = `https://www.omdbapi.com/?s=${encoded}&page=${page}&apikey=${keyOMDb}`;
   const res = await fetch(url);

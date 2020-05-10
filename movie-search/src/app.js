@@ -20,6 +20,9 @@ import Movie from './js/Movie';
 import saveInputValue from './js/saveInputValue';
 import SearchButton from './js/SearchButton';
 import ResetTextBtn from './js/ResetTextBtn';
+import SearchQueryInfoPanel from './js/SearchQueryInfoPanel';
+import SearchQueryInfo from './js/SearchQueryInfo';
+import SearchQueryError from './js/SearchQueryError';
 
 class App {
   constructor() {
@@ -33,6 +36,10 @@ class App {
     this.searchButton = new SearchButton();
     this.searchDiv.append(this.inputSearchBar, this.resetBtn, this.searchButton);
     this.searchContainer.append(this.searchDiv);
+    this.searchQueryInfoPanel = new SearchQueryInfoPanel();
+    this.searchQueryInfo = new SearchQueryInfo();
+    this.searchQueryError = new SearchQueryError();
+    this.searchQueryInfoPanel.append(this.searchQueryInfo, this.searchQueryError);
     this.swiperContainer = new SwiperContainer();
     this.swiperWrapper = new SwiperWrapper();
     this.swiperPagination = new SwiperPagination();
@@ -49,7 +56,7 @@ class App {
     this.footer.append(this.rssText, this.github);
     document.body.setAttribute('id', 'honey-comb');
     document.body.append(this.header.element, this.searchContainer.element,
-      this.swiperContainer.element, this.footer.element);
+      this.searchQueryInfoPanel.element, this.swiperContainer.element, this.footer.element);
     this.swiper = new Swiper('.swiper-container', {
       slidesPerView: 4,
       spaceBetween: 30,
