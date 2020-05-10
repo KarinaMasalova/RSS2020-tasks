@@ -2,6 +2,6 @@ import Component from './Component';
 
 export default class SearchDiv extends Component {
   constructor() {
-    super('div', null, 'search');
+    super('div', null, 'search-div');
   }
 }
