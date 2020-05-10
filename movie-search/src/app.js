@@ -19,6 +19,7 @@ import loadMovieData from './js/loader';
 import Movie from './js/Movie';
 import saveInputValue from './js/saveInputValue';
 import SearchButton from './js/SearchButton';
+import ResetTextBtn from './js/ResetTextBtn';
 
 class App {
   constructor() {
@@ -26,10 +27,11 @@ class App {
     this.headerTitle = new HeaderTitle();
     this.header.append(this.headerTitle);
     this.searchContainer = new SearchContainer();
-    this.inputSearchBar = new InputSearchBar();
-    this.searchButton = new SearchButton();
     this.searchDiv = new SearchDiv();
-    this.searchDiv.append(this.inputSearchBar, this.searchButton);
+    this.inputSearchBar = new InputSearchBar();
+    this.resetBtn = new ResetTextBtn();
+    this.searchButton = new SearchButton();
+    this.searchDiv.append(this.inputSearchBar, this.resetBtn, this.searchButton);
     this.searchContainer.append(this.searchDiv);
     this.swiperContainer = new SwiperContainer();
     this.swiperWrapper = new SwiperWrapper();

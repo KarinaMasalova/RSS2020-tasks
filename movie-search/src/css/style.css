@@ -77,10 +77,25 @@ a.gh-name {
   opacity: 0.5;
 }
 
+.reset-btn {
+  border-top: 3px solid crimson;
+  border-bottom: 3px solid crimson;
+  border-left: 0;
+  border-right: 0;
+  opacity: .7;
+  font-size: x-large;
+  background-color: rgb(30, 30, 30);
+  opacity: .7;
+  color: white;
+  padding: 0 10px;
+}
+
 .search-btn {
   width: 40px;
   border: 1px solid crimson;
   background: crimson;
+  background-image: url('../assets/img/search-icon.svg');
+  background-repeat: no-repeat;
   text-align: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
