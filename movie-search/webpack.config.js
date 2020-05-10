@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, options) => {
   const debug = options.mode === 'development';
@@ -23,12 +24,16 @@ module.exports = (env, options) => {
       }),
       new CopyPlugin([
         { from: './src/assets/img', to: 'img' },
-      ])],
+      ]),
+      new MiniCssExtractPlugin({
+        filename: 'style.css',
+      }),
+    ],
     module: {
       rules: [
         {
           test: /\.css$/i,
-          use: ['style-loader', 'css-loader'],
+          use: [MiniCssExtractPlugin.loader, 'css-loader'],
         },
         {
           test: /\.m?js$/,
@@ -40,6 +45,10 @@ module.exports = (env, options) => {
               plugins: ['@babel/plugin-transform-runtime'],
             },
           },
+        },
+        {
+          test: /\.(png|jpe?g|gif|svg)$/i,
+          loader: 'file-loader',
         },
       ],
     },
