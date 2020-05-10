@@ -23,7 +23,6 @@ body {
 /* header */
 
 .bg-gray {
-  height: 55px;
   background-color: #252525;
   border-top: 1px solid #474a51;
   border-bottom: 1px solid #474a51;
@@ -53,7 +52,7 @@ a.gh-name {
 .search-div {
   display: flex;
   margin: 0 auto;
-  width: 50%;
+  width: 70%;
 }
 
 .search-bar {
@@ -91,12 +90,12 @@ a.gh-name {
 }
 
 .search-btn {
-  width: 40px;
+  width: 23%;
   border: 1px solid crimson;
   background: crimson;
   background-image: url('../assets/img/search-icon.svg');
   background-repeat: no-repeat;
-  text-align: center;
+  background-position: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
@@ -164,6 +163,7 @@ a.gh-name {
 
 .movie-poster {
   width: 85%;
+  height: 100%;
 }
 
 /* footer */
@@ -171,6 +171,7 @@ a.gh-name {
 .footer-container {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .github {
