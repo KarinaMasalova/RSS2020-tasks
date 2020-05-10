@@ -17,7 +17,7 @@ module.exports = (env, options) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'English for kids',
+        title: 'Movie Search',
         filename: 'index.html',
         template: './src/assets/index.html',
       }),
