@@ -46,11 +46,12 @@ class App {
     document.body.append(this.header.element, this.searchContainer.element,
       this.swiperContainer.element, this.footer.element);
     this.swiper = new Swiper('.swiper-container', {
-      slidesPerView: 3,
+      slidesPerView: 4,
       spaceBetween: 30,
-      centerInsufficientSlides: true,
+      centerInsufficientSlides: true, /*
+      setWrapperSize: false,
       autoHeight: true,
-      // updateOnWindowResize: true,
+      updateOnWindowResize: true, */
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -68,24 +69,32 @@ class App {
   }
 }
 
-window.addEventListener('load', () => {
-  const app = new App();
-  let page = 1;
-  const loader = (currentPage) => {
-    let slides;
-    loadMovieData(null, currentPage)
-      .then((data) => {
-        if (data.Response === 'True') {
-          const movies = data.Search.map((obj) => new Movie(obj));
-          slides = movies.map((movie) => new SwiperSlide(movie));
-          app.swiper.appendSlide(slides.map((s) => s.element));
-        }
-      });
-  };
-  loader(1);
-  app.swiper.on('reachEnd', () => {
-    page += 1;
-    loader(page);
-  });
-  app.searchContainer.addEventListener('submit', saveInputValue);
+const app = new App();
+let page = 1;
+let currentQuery = 'dream';
+const loader = (query, currentPage) => {
+  loadMovieData(query, currentPage)
+    .then((data) => {
+      if (data.Response === 'True') {
+        const movies = data.Search.map((obj) => new Movie(obj));
+        const slides = movies.map((movie) => new SwiperSlide(movie));
+        app.swiper.appendSlide(slides.map((s) => s.element));
+      }
+      console.log(data);
+    });
+};
+
+loader(currentQuery, page);
+app.swiper.on('reachEnd', () => {
+  page += 1;
+  loader(currentQuery, page);
+});
+
+app.searchContainer.addEventListener('submit', (event) => {
+  event.preventDefault();
+  currentQuery = saveInputValue();
+  page = 1;
+  app.swiper.removeAllSlides();
+  console.log(page);
+  loader(currentQuery, page);
 });

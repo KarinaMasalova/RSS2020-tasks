@@ -19,11 +19,11 @@ module.exports = (env, options) => {
       new HtmlWebpackPlugin({
         title: 'English for kids',
         filename: 'index.html',
-        template: './src/assets/index.html'
+        template: './src/assets/index.html',
       }),
       new CopyPlugin([
-      { from: './src/assets/img', to: 'img' },
-    ]),],
+        { from: './src/assets/img', to: 'img' },
+      ])],
     module: {
       rules: [
         {
@@ -37,11 +37,12 @@ module.exports = (env, options) => {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-transform-runtime'],
             },
           },
         },
       ],
-    },    
+    },
   };
 
   return config;
