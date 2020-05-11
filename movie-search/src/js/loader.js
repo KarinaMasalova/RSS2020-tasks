@@ -59,6 +59,8 @@ async function loadMovieData(query, page = 1) {
   if (lang !== 'en') {
     encoded = await getTranslation(encoded);
     addInfoToPanel(encoded);
+  } else {
+    deleteInfoFromPanel();
   }
   const url = `https://www.omdbapi.com/?s=${encoded}&page=${page}&apikey=${keyOMDb}`;
   const res = await fetch(url);
@@ -68,7 +70,6 @@ async function loadMovieData(query, page = 1) {
     await Promise.all(data.Search.map((obj) => addRating(obj)));
     deleteErrorFromPanel();
   } else {
-    deleteInfoFromPanel();
     addErrorToPanel(encoded);
   }
 
