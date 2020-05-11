@@ -164,6 +164,7 @@ a.gh-name {
 
 .movie-title {
   height: 3em;
+  overflow: hidden;
 }
 
 .movie-poster {
