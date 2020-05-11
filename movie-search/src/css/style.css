@@ -167,8 +167,13 @@ a.gh-name {
 }
 
 .movie-poster {
-  width: 85%;
-  height: 100%;
+  margin: 0 auto;
+  min-width: 50px;
+  width: 200px;
+  max-width: 200px;
+  height: 300px;
+  max-height: 300px;
+  background-size: cover;
 }
 
 /* footer */

@@ -61,6 +61,25 @@ class App {
       slidesPerView: 4,
       spaceBetween: 30,
       centerInsufficientSlides: true,
+      preloadImages: true,
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        480: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        800: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+        1100: {
+          slidesPerView: 4,
+          spaceBetween: 50,
+        },
+      },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -107,7 +126,6 @@ app.searchContainer.addEventListener('submit', (event) => {
   event.preventDefault();
   currentQuery = saveInputValue();
   page = 1;
-  console.log(page);
   isNextQuery = true;
   app.swiper.removeAllSlides();
   loader(currentQuery, page);

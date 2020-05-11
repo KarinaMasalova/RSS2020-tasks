@@ -2,9 +2,10 @@ import Component from './Component';
 
 export default class MoviePoster extends Component {
   constructor(poster) {
-    super('img', null, 'movie-poster');
-    this.element.setAttribute('src', poster);
-    this.element.setAttribute('width', '200');
-    this.element.setAttribute('height', '300');
+    super('div', null, 'movie-poster');
+    this.noPoster = '../img/no-poster.jpg';
+    this.url = (poster === 'N/A') ? this.noPoster : poster;
+    this.bgImage = `background-image: url('${this.url}')`;
+    this.element.setAttribute('style', this.bgImage);
   }
 }
