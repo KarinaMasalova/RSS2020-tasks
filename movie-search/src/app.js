@@ -1,6 +1,5 @@
 import Swiper from 'swiper';
 import Header from './js/Header';
-import HeaderTitle from './js/HeaderTitle';
 import SearchContainer from './js/SearchContainer';
 import InputSearchBar from './js/InputSearchBar';
 import SearchDiv from './js/SearchDiv';
@@ -11,24 +10,16 @@ import SwiperPagination from './js/SwiperPagination';
 import SwiperButtonNext from './js/SwiperButtonNext';
 import SwiperButtonPrev from './js/SwiperButtonPrev';
 import Footer from './js/Footer';
-import RssText from './js/RssText';
-import Github from './js/Github';
-import GithubName from './js/GithubName';
-import GithubIcon from './js/GithubIcon';
 import loadMovieData from './js/loader';
 import Movie from './js/Movie';
 import saveInputValue from './js/saveInputValue';
 import SearchButton from './js/SearchButton';
 import ResetTextBtn from './js/ResetTextBtn';
 import SearchQueryInfoPanel from './js/SearchQueryInfoPanel';
-import SearchQueryInfo from './js/SearchQueryInfo';
-import SearchQueryError from './js/SearchQueryError';
 
 class App {
   constructor() {
     this.header = new Header();
-    this.headerTitle = new HeaderTitle();
-    this.header.append(this.headerTitle);
     this.searchContainer = new SearchContainer();
     this.searchDiv = new SearchDiv();
     this.inputSearchBar = new InputSearchBar();
@@ -37,9 +28,6 @@ class App {
     this.searchDiv.append(this.inputSearchBar, this.resetBtn, this.searchButton);
     this.searchContainer.append(this.searchDiv);
     this.searchQueryInfoPanel = new SearchQueryInfoPanel();
-    this.searchQueryInfo = new SearchQueryInfo();
-    this.searchQueryError = new SearchQueryError();
-    this.searchQueryInfoPanel.append(this.searchQueryInfo, this.searchQueryError);
     this.swiperContainer = new SwiperContainer();
     this.swiperWrapper = new SwiperWrapper();
     this.swiperPagination = new SwiperPagination();
@@ -48,15 +36,10 @@ class App {
     this.swiperContainer.append(this.swiperWrapper, this.swiperPagination,
       this.swiperBtnNext, this.swiperBtnPrev);
     this.footer = new Footer();
-    this.rssText = new RssText();
-    this.github = new Github();
-    this.githubIcon = new GithubIcon('./img/github-icon.svg');
-    this.githubName = new GithubName();
-    this.github.append(this.githubIcon, this.githubName);
-    this.footer.append(this.rssText, this.github);
-    document.body.setAttribute('id', 'honey-comb');
+    document.body.setAttribute('class', 'honey-comb');
     document.body.append(this.header.element, this.searchContainer.element,
       this.searchQueryInfoPanel.element, this.swiperContainer.element, this.footer.element);
+
     this.swiper = new Swiper('.swiper-container', {
       slidesPerView: 4,
       spaceBetween: 30,
