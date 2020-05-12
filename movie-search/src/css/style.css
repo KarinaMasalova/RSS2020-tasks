@@ -105,6 +105,8 @@ a.gh-name {
 
 .search-query-info-panel {
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   color: #787d87;
 }
 
