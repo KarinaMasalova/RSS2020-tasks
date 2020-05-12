@@ -152,7 +152,7 @@ a.gh-name {
   font-size: 3vw;
 }
 
-.movie-title,
+a.movie-title,
 .movie-year,
 .movie-rating {
   display: flex;
@@ -165,6 +165,12 @@ a.gh-name {
 .movie-title {
   height: 3em;
   overflow: hidden;
+}
+
+a.movie-title:hover {
+  color: crimson;
+  cursor: pointer;
+  transition: .5s;
 }
 
 .movie-poster {
