@@ -16,6 +16,7 @@ import saveInputValue from './js/saveInputValue';
 import SearchButton from './js/SearchButton';
 import ResetTextBtn from './js/ResetTextBtn';
 import SearchQueryInfoPanel from './js/SearchQueryInfoPanel';
+import Loader from './js/PageLoader';
 
 class App {
   constructor() {
@@ -28,6 +29,7 @@ class App {
     this.searchDiv.append(this.inputSearchBar, this.resetBtn, this.searchButton);
     this.searchContainer.append(this.searchDiv);
     this.searchQueryInfoPanel = new SearchQueryInfoPanel();
+    this.loader = new Loader();
     this.swiperContainer = new SwiperContainer();
     this.swiperWrapper = new SwiperWrapper();
     this.swiperPagination = new SwiperPagination();
@@ -38,7 +40,7 @@ class App {
     this.footer = new Footer();
     document.body.setAttribute('class', 'honey-comb');
     document.body.append(this.header.element, this.searchContainer.element,
-      this.searchQueryInfoPanel.element, this.swiperContainer.element,
+      this.searchQueryInfoPanel.element, this.loader.element, this.swiperContainer.element,
       this.footer.element);
 
     this.swiper = new Swiper('.swiper-container', {

@@ -31,7 +31,7 @@ const addRating = async (obj) => {
 
 const addInfoToPanel = (word) => {
   const info = document.querySelector('.search-query-info');
-  info.textContent = `Search results for ${word}`;
+  info.textContent = `Showing results for ${word}`;
   return info;
 };
 
@@ -54,6 +54,7 @@ const deleteErrorFromPanel = () => {
 };
 
 async function loadMovieData(query, page = 1) {
+  document.querySelector('.loader-container').classList.add('loader');
   let encoded = encodeURIComponent(query || 'dream');
   const lang = await getLang(encoded);
   if (lang !== 'en') {
@@ -72,7 +73,7 @@ async function loadMovieData(query, page = 1) {
   } else {
     addErrorToPanel(encoded);
   }
-
+  document.querySelector('.loader-container').classList.remove('loader');
   return data;
 }
 
