@@ -5,5 +5,6 @@ export default class MovieTitle extends Component {
     super('a', null, 'movie-title');
     this.element.textContent = title;
     this.element.setAttribute('href', `https://imdb.com/title/${imdbID}`);
+    this.element.setAttribute('target', '_blank');
   }
 }
