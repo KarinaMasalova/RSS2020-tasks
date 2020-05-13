@@ -38,7 +38,8 @@ class App {
     this.footer = new Footer();
     document.body.setAttribute('class', 'honey-comb');
     document.body.append(this.header.element, this.searchContainer.element,
-      this.searchQueryInfoPanel.element, this.swiperContainer.element, this.footer.element);
+      this.searchQueryInfoPanel.element, this.swiperContainer.element,
+      this.footer.element);
 
     this.swiper = new Swiper('.swiper-container', {
       slidesPerView: 4,
