@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/*honey combination*/
+
+.honey-comb {
+  width: 100%;
+	background: center url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(40,40,40)' viewBox='0 0 100 169.5'%3E%3Cpolygon points='50,34.75 93.5,59.75 93.5,109.75 50,134.75 6.5,109.75 6.5,59.75'%3E%3C/polygon%3E%3Cpolygon points='0,-50 43.5,-25 43.5,25 0,50 -43.5,25 -43.5,-25'%3E%3C/polygon%3E%3Cpolygon points='100,-50 143.5,-25 143.5,25 100,50 56.5,25 56.5,-25'%3E%3C/polygon%3E%3Cpolygon points='0,119.5 43.5,144.5 43.5,194.5 0,219.5 -43.5,194.5 -43.5,144.5'%3E%3C/polygon%3E%3Cpolygon points='100,119.5 143.5,144.5 143.5,194.5 100,219.5 56.5,194.5 56.5,144.5'%3E%3C/polygon%3E%3C/svg%3E");
+  background-color:rgb(30, 30, 30);
+  background-size: 16px;
+}
+
+/* header */
+
+.bg-gray {
+  background-color: #252525;
+  border-top: 1px solid #474a51;
+  border-bottom: 1px solid #474a51;
+}
+
+.h1-movie-search,
+.rss-text, 
+a.gh-name {
+  margin: auto;
+  color: #787d87;
+  font-family: 'Inconsolata', monospace;
+}
+
+.h1-movie-search {
+  text-align: center;
+}
+
+/*search bar*/
+
+.form-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  margin: 20px 0;
+}
+
+.search-div {
+  display: flex;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 5px;
+  border: 3px solid crimson;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  background-color: rgb(30, 30, 30);
+  color: #787d87;
+  opacity: .7;
+}
+
+.search-bar:focus {
+  color: #787d87;
+}
+
+.search-bar::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+.reset-btn {
+  border-top: 3px solid crimson;
+  border-bottom: 3px solid crimson;
+  border-left: 0;
+  border-right: 0;
+  opacity: .7;
+  font-size: x-large;
+  background-color: rgb(30, 30, 30);
+  opacity: .7;
+  color: white;
+  padding: 0 10px;
+}
+
+.search-btn {
+  width: 23%;
+  border: 1px solid crimson;
+  background: crimson;
+  background-image: url('../assets/img/search-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+  opacity: .7;
+}
+
+.search-btn:hover {
+  opacity: .5;
+}
+
+.search-query-info-panel {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: #787d87;
+}
+
+/* swiper */
+
+.swiper-container {
+  width: 100%;
+  height: calc(100vh - 142px);
+  margin: 30px 0;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: crimson;
+}
+
+.swiper-pagination-bullet {
+  background: #787d87;
+  opacity: .5;
+}
+
+.swiper-pagination-bullet-active {
+  background: crimson;
+  opacity: 1;
+}
+
+a.movie-title,
+.movie-year,
+.movie-rating {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1em;
+  color: #787d87;
+}
+
+.movie-title {
+  height: 3em;
+  overflow: hidden;
+}
+
+a.movie-title:hover {
+  color: crimson;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.movie-poster {
+  margin: 0 auto;
+  min-width: 50px;
+  width: 200px;
+  max-width: 200px;
+  height: 300px;
+  max-height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* footer */
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.github {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rss-text,
+a.gh-name {
+  font-size: 18px;
+}
+
+a.gh-name:hover {
+  color: crimson;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.gh-icon {
+  margin-right: 10px;
+}
+
+/* loader */
+
+.loader {
+  margin: 2% auto;
+  border: 16px solid crimson;
+  border-top: 16px solid #787d87;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
